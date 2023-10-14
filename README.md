@@ -1,5 +1,14 @@
 # Wazuh-IRIS-integration
-Simple Wazuh integration to send alerts to IRIS, as described in [https://nateuribe.tech/blog/foss-soc/](https://nateuribe.tech/blog/foss-soc/).
+Simple Wazuh integration to send alerts to IRIS, as originally described [nateuribe](https://github.com/nateuribe) in [https://nateuribe.tech/blog/foss-soc/](https://nateuribe.tech/blog/foss-soc/). [nateuribe](https://github.com/nateuribe) deserves all credit so please go and star their repo and follow them. 
+
+## The forked version you are reading updates IRIS alert fields to include alternative information
+
+Main changes are as follows:
+- Wazuh Alert Title name now populates to the Iris Alert Title
+- Added function to find "message" field in alert JSON, this is used in the API call to add the information to the Iris Alert Description
+- Agent and event information now map to the Iris Alert Description for easier visibility
+
+
 
 ## Requirements
 - [Wazuh](https://github.com/wazuh/wazuh) Server
@@ -9,7 +18,7 @@ Simple Wazuh integration to send alerts to IRIS, as described in [https://nateur
 
 ## Installation
 ```
-git clone https://github.com/nateuribe/Wazuh-IRIS-integration.git
+git clone https://github.com/chadhardcastle/Wazuh-IRIS-integration.git
 cd Wazuh-IRIS-integration/
 cp custom-iris.py /var/ossec/integrations/custom-iris.py
 chmod 750 /var/ossec/integrations/custom-iris.py
@@ -24,13 +33,13 @@ Add the following snippet into the `/var/ossec/etc/ossec.conf` config file:
 <!-- IRIS integration -->
 <integration>
     <name>custom-iris.py</name>
-    <hook_url>http://IRIS-BASE-URL/alerts/add</hook_url>
-    <level>7</level>
+    <hook_url>http://IRIS-BASE-URL:8000/alerts/add</hook_url>
+    <level>10</level>
     <api_key>APIKEY</api_key>
     <alert_format>json</alert_format>
 </integration>
 ```
-Adjust `<hook_url>` and `<api_key>` to your environment, and change `<level>` to the desired threshold for alerts.
+Adjust `<hook_url>` and `<api_key>` to your environment, and change `<level>` to the desired threshold for alerts. Depending on what alerts you would like to ingest, I recommend setting this to Level 10. Your requirements may differ.
 
 Restart the `wazuh-manager` service after making the above settings.
 
