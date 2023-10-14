@@ -7,6 +7,22 @@ import json
 import requests
 from requests.auth import HTTPBasicAuth
 
+# Function to search for and extract the "message" field
+def find_message_field(data):
+    if isinstance(data, dict):
+        if "message" in data:
+            return data["message"]
+        for key, value in data.items():
+            result = find_message_field(value)
+            if result is not None:
+                return result
+    elif isinstance(data, list):
+        for item in data:
+            result = find_message_field(item)
+            if result is not None:
+                return result
+    return None
+
 # Read parameters when integration is run
 alert_file = sys.argv[1]
 api_key = sys.argv[2]
@@ -20,9 +36,15 @@ with open(alert_file) as f:
 alert_id = alert_json["id"]
 alert_timestamp = alert_json["timestamp"]
 alert_level = alert_json["rule"]["level"]
-alert_description = alert_json["rule"]["description"]
+alert_title = alert_json["rule"]["description"]
+alert_description = find_message_field(alert_json["data"])
 agent_name = alert_json["agent"]["name"]
+agent_ip = alert_json["agent"]["ip"]
+agent_id = alert_json["agent"]["id"]
 rule_id = alert_json["rule"]["id"]
+rule_fires = alert_json["rule"]["firedtimes"]
+alert_data = alert_json["data"]
+alert_message = find_message_field(alert_json["data"])
 
 # Convert Wazuh rule levels -> IRIS severity
 if(alert_level < 5):
@@ -41,9 +63,14 @@ else:
 # Generate request
 # Reference: https://docs.dfir-iris.org/_static/iris_api_reference_v2.0.1.html#tag/Alerts/operation/post-case-add-alert
 payload = json.dumps({
-    "alert_title": "Wazuh Alert",
-    "alert_description": alert_description,
-    "alert_source": "Wazuh Server",
+    "alert_title": alert_title,
+    "alert_description": f"""Agent ID: {agent_id}
+Agent IP: {agent_ip}
+Agent Name: {agent_name}
+
+Alert Details: {alert_description}
+""",
+    "alert_source": "Wazuh",
     "alert_source_ref": alert_id,
     "alert_source_link": "WAZUH_URL",
     "alert_severity_id": severity, 
