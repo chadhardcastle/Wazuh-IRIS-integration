@@ -60,3 +60,11 @@ Here are some notable values you may change:
 `alert_note` - Note or comment to add to each alert
 
 `alert_customer_id` - Alerts in IRIS get assigned to "customers"; this is the ID of the customer for which the alerts pertains to.
+
+## Examples
+
+Windows Defender `Mimikatz` detection Alert
+![image](https://github.com/chadhardcastle/Wazuh-IRIS-integration/assets/110081755/126a0220-2c33-4715-bb2a-3739d318ef45)
+
+Informational Docker Error Alert
+![image](https://github.com/chadhardcastle/Wazuh-IRIS-integration/assets/110081755/ea682b1c-6ed1-4d0e-a8f5-a68ed9671f85)
