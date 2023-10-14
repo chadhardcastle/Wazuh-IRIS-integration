@@ -34,14 +34,16 @@ Add the following snippet into the `/var/ossec/etc/ossec.conf` config file:
 <integration>
     <name>custom-iris.py</name>
     <hook_url>http://IRIS-BASE-URL:8000/alerts/add</hook_url>
-    <level>10</level>
+    <level>7</level>
     <api_key>APIKEY</api_key>
     <alert_format>json</alert_format>
 </integration>
 ```
-Adjust `<hook_url>` and `<api_key>` to your environment, and change `<level>` to the desired threshold for alerts. Depending on what alerts you would like to ingest, I recommend setting this to Level 10. Your requirements may differ.
+Adjust `<hook_url>` and `<api_key>` to your environment, and change `<level>` to the desired threshold for alerts.
 
-Restart the `wazuh-manager` service after making the above settings.
+Restart the `wazuh-manager` service after modifying the above settings
+
+```systemctl restart wazuh-manager```
 
 The IRIS API can be found in the Dashboard under **My Settings**
 
