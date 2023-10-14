@@ -43,7 +43,9 @@ Adjust `<hook_url>` and `<api_key>` to your environment, and change `<level>` to
 
 Restart the `wazuh-manager` service after modifying the above settings
 
-```systemctl restart wazuh-manager```
+```
+systemctl restart wazuh-manager
+```
 
 The IRIS API can be found in the Dashboard under **My Settings**
 
