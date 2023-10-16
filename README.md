@@ -1,5 +1,5 @@
 # Wazuh-IRIS-integration
-Simple Wazuh integration to send alerts to IRIS, as originally described [nateuribe](https://github.com/nateuribe) in [https://nateuribe.tech/blog/foss-soc/](https://nateuribe.tech/blog/foss-soc/). [nateuribe](https://github.com/nateuribe) deserves all credit so please go and star their repo and follow them. 
+Simple Wazuh integration to send alerts to IRIS, as originally described by [nateuribe](https://github.com/nateuribe) in [https://nateuribe.tech/blog/foss-soc/](https://nateuribe.tech/blog/foss-soc/). [nateuribe](https://github.com/nateuribe) deserves all credit so please go and star their repo and follow them. 
 
 ## The forked version you are reading updates IRIS alert fields to include alternative information
 
