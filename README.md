@@ -1,5 +1,6 @@
 # Wazuh-IRIS-integration
 ![Static Badge](https://img.shields.io/badge/SIEM-Integration-%230000FF) ![Static Badge](https://img.shields.io/badge/SECENG-Cloud-%23800080%20) ![Static Badge](https://img.shields.io/badge/LANGUAGE-Python-%23008000)
+
 Simple Wazuh integration to send alerts to IRIS, as originally described by [nateuribe](https://github.com/nateuribe) in [https://nateuribe.tech/blog/foss-soc/](https://nateuribe.tech/blog/foss-soc/). [nateuribe](https://github.com/nateuribe) deserves all credit so please go and star their repo and follow them. 
 
 ## The forked version you are reading updates IRIS alert fields to include alternative information
