@@ -1,3 +1,7 @@
+# Depreacted
+
+This script is no longer maintained and may not work with newer versions of Wazuh. Luckily, *Wazuh* has released their own guide and a modification of *Nate Uribe's* more recently updated script which you can find [here](https://wazuh.com/blog/enhancing-incident-response-with-wazuh-and-dfir-iris-integration/)
+
 # Wazuh-IRIS-integration
 ![Static Badge](https://img.shields.io/badge/SIEM-Integration-%230000FF) ![Static Badge](https://img.shields.io/badge/LANGUAGE-Python-%23008000)
 
