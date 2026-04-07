@@ -1,4 +1,4 @@
-# Depreacted
+# Deprecated
 
 This script is no longer maintained and may not work with newer versions of Wazuh. Luckily, *Wazuh* has released their own guide and a modification of *Nate Uribe's* more recently updated script. The guide can be found [here](https://wazuh.com/blog/enhancing-incident-response-with-wazuh-and-dfir-iris-integration/)
 
